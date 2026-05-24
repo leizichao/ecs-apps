@@ -10,7 +10,7 @@ on:
       - '.github/workflows/deploy-sqs.yml'
 
 jobs:
-  deploy:
+  deploy-sqs:
     runs-on: ubuntu-latest
 
     steps:

@@ -34,6 +34,28 @@ jobs:
             -t flask-s3-service \
             ./flask-s3-service
 
+      # -------------------------
+      # Install Snyk CLI
+      # -------------------------
+      - name: Install Snyk
+        run: |
+          npm install -g snyk
+
+      # -------------------------
+      # Authenticate Snyk
+      # -------------------------
+      - name: Authenticate Snyk
+        run: |
+          snyk auth ${{ secrets.SNYK_TOKEN }}
+
+      # -------------------------
+      # Snyk Container Scan
+      # -------------------------
+      - name: Run Snyk Container Scan
+        run: |
+          snyk container test flask-s3-service:latest \
+            --file=./flask-s3-service/Dockerfile
+
       - name: Tag Docker Image
         run: |
           docker tag flask-s3-service:latest \

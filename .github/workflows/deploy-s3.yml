@@ -62,7 +62,7 @@ jobs:
       - name: Run Snyk Container Scan
         run: |
           snyk container test flask-s3-service:latest \
-            --file=./flask-s3-service/Dockerfile
+            --file=./flask-s3-service/Dockerfile \
             --severity-threshold=high \
             --exclude-base-image-vulns
             

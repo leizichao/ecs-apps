@@ -9,6 +9,14 @@ on:
       - 'flask-s3-service/**'
       - '.github/workflows/deploy-s3.yml'
 
+  pull_request:
+    branches:
+      - main
+
+    paths:
+      - 'flask-s3-service/**'
+      - '.github/workflows/deploy-s3.yml'
+
 jobs:
   deploy-s3:
     runs-on: ubuntu-latest

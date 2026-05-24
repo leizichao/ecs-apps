@@ -9,6 +9,14 @@ on:
       - 'flask-sqs-service/**'
       - '.github/workflows/deploy-sqs.yml'
 
+  pull_request:
+    branches:
+      - main
+
+    paths:
+      - 'flask-sqs-service/**'
+      - '.github/workflows/deploy-sqs.yml'
+
 jobs:
   deploy-sqs:
     runs-on: ubuntu-latest

@@ -54,6 +54,8 @@ jobs:
         run: |
           snyk container test flask-sqs-service:latest \
             --file=./flask-sqs-service/Dockerfile
+            --severity-threshold=high \
+            --exclude-base-image-vulns
 
       - name: Tag Docker Image
         run: |

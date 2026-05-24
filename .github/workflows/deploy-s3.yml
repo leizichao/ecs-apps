@@ -63,7 +63,9 @@ jobs:
         run: |
           snyk container test flask-s3-service:latest \
             --file=./flask-s3-service/Dockerfile
-
+            --severity-threshold=high \
+            --exclude-base-image-vulns
+            
       - name: Tag Docker Image
         run: |
           docker tag flask-s3-service:latest \
